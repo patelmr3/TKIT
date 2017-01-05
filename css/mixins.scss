@@ -20,10 +20,17 @@
   -o-border-radius: $radius;
   border-radius: $radius;
 }
-@mixin transition( $transition: ease all 0.3s ){
-	transition: $transition;
-	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	-ms-transition: $transition;
-	-o-transition: $transition;
+@mixin transition( $transition1, $transition2, $transition3 ){
+	transition: $transition1, $transition2, $transition3;
+	-webkit-transition: $transition1, $transition2, $transition3;
+	-moz-transition: $transition1, $transition2, $transition3;
+	-ms-transition: $transition1, $transition2, $transition3;
+	-o-transition: $transition1, $transition2, $transition3;
+}
+@mixin moviePosterEnter( $scale, $rotate ){
+	transform: scale( $scale ) rotate( $rotate );
+	-webkit-transform: scale( $scale ) rotate( $rotate );
+	-moz-transform: scale( $scale ) rotate( $rotate );
+	-ms-transform: scale( $scale ) rotate( $rotate );
+	-o-transform: scale( $scale ) rotate( $rotate );
 }

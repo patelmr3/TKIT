@@ -8,6 +8,7 @@ tkit.config( function( $routeProvider, $locationProvider ) {
 });
 
 tkit.controller( "movieSelector", function( $scope, $interval ){
+
 	$scope.moviesRaw = [
 		{
 			title		: 	"Movie Title 1",
@@ -19,13 +20,13 @@ tkit.controller( "movieSelector", function( $scope, $interval ){
 			title		: 	"Movie Title 2",
 			showTimes	: 	[ '9:00 AM', '9:45 AM', '6:00 PM' ],
 			summary		: 	"This is a movie summary 2", 
-			poster		: 	"https://drnorth.files.wordpress.com/2015/02/divergent-2014-movie-posters-and-trailer.jpg"
+			poster		: 	"https://joshwebb990.files.wordpress.com/2014/02/johhny-english-movie-posters-26233319-1012-1500.jpg"
 		},
 		{
 			title		: 	"Movie Title 3",
 			showTimes	: 	[ '9:00 AM', '9:45 AM', '3:00 PM' ],
 			summary		: 	"This is a movie summary 3", 
-			poster		: 	"https://drnorth.files.wordpress.com/2015/02/divergent-2014-movie-posters-and-trailer.jpg"
+			poster		: 	"https://arielocampo.edublogs.org/files/2016/04/Assassin-2iaz3u9.jpg"
 		}
 	];
 

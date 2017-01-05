@@ -1,4 +1,5 @@
 body {
+  overflow: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -22,59 +23,79 @@ body {
   top: 0px;
   left: 0px; }
 
+.ui-block-inner {
+  position: absolute; }
+
 .movie-item-wrapper {
+  position: absolute;
   float: left;
-  width: 350px;
-  height: 560px;
-  padding: 15px;
-  margin: 0px 15px;
+  width: 33.33%;
+  height: 100%;
   background-color: #fff;
   -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   -o-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px; }
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); }
 
-/*.ui-view{
-	@include transition(ease all 0.3s);
+.movie-poster, .movie-poster div {
+  z-index: 99;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%; }
+  .movie-poster div {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; }
 
-	&.ng-enter{
-		opacity: 0;
-		top: 5%;
-	}
-	&.ng-enter.ng-enter-active{
-		opacity: 0.5;
-		top: 0%;
-	}
+.movie-info {
+  display: none; }
 
-	&.ng-leave{
-		opacity: 1;
-	}
-	&.ng-leave.ng-leave-active{
-		opacity: 0;
-	}
-
-}*/
 .movie-item-wrapper {
-  transition: ease all 0.3s;
-  -webkit-transition: ease all 0.3s;
-  -moz-transition: ease all 0.3s;
-  -ms-transition: ease all 0.3s;
-  -o-transition: ease all 0.3s; }
+  /*overflow: hidden;*/
+  position: relative;
+  transition: ease opacity 0.5s, ease left 1s, ease position 0.2s;
+  -webkit-transition: ease opacity 0.5s, ease left 1s, ease position 0.2s;
+  -moz-transition: ease opacity 0.5s, ease left 1s, ease position 0.2s;
+  -ms-transition: ease opacity 0.5s, ease left 1s, ease position 0.2s;
+  -o-transition: ease opacity 0.5s, ease left 1s, ease position 0.2s; }
+  .movie-item-wrapper .movie-poster div, .movie-poster .movie-item-wrapper div div {
+    transition: ease-in-out left 0.5s, ease-in-out transform 0.1s, ease opacity 0.3s;
+    -webkit-transition: ease-in-out left 0.5s, ease-in-out transform 0.1s, ease opacity 0.3s;
+    -moz-transition: ease-in-out left 0.5s, ease-in-out transform 0.1s, ease opacity 0.3s;
+    -ms-transition: ease-in-out left 0.5s, ease-in-out transform 0.1s, ease opacity 0.3s;
+    -o-transition: ease-in-out left 0.5s, ease-in-out transform 0.1s, ease opacity 0.3s; }
   .movie-item-wrapper.ng-enter {
+    position: absolute;
     opacity: 0;
-    margin-left: 5%; }
+    left: 100%; }
   .movie-item-wrapper.ng-enter.ng-enter-active {
-    opacity: 0.5;
-    margin-left: 0%; }
+    opacity: 1;
+    left: 0%;
+    width: 100%; }
   .movie-item-wrapper.ng-leave {
     opacity: 1; }
   .movie-item-wrapper.ng-leave.ng-leave-active {
     opacity: 0; }
+
+.movie-item-wrapper.ng-enter .movie-poster div, .movie-poster .movie-item-wrapper.ng-enter div div {
+  left: -100%;
+  transform: scale(0.8) rotate(-45deg);
+  -webkit-transform: scale(0.8) rotate(-45deg);
+  -moz-transform: scale(0.8) rotate(-45deg);
+  -ms-transform: scale(0.8) rotate(-45deg);
+  -o-transform: scale(0.8) rotate(-45deg);
+  opacity: 0; }
+
+.movie-item-wrapper.ng-enter.ng-ernter-active .movie-poster div, .movie-poster .movie-item-wrapper.ng-enter.ng-ernter-active div div {
+  left: 0%;
+  transform: scale(1) rotate(0deg);
+  -webkit-transform: scale(1) rotate(0deg);
+  -moz-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  -o-transform: scale(1) rotate(0deg);
+  opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */
