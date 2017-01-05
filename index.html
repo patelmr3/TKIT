@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 	<title>TKIT</title>
+	<base href="/">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-route/angular-route.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
 </head>
 
 <body ng-app="tkit">
 <section class="ui-wrapper">
-	<article class="ui-inner">
 
-	<div ng-view>
+	<div ng-view class="ui-view">
 		<!-- UI DISPLAYS HERE -->
 	</div>
 
-	</article> <!-- ui inner -->
 </section> <!-- ui wrapper -->
+
+<!-- SCRIPTS -->
+<script src="js/controllers/movie_selector.js"></script>
 </body>
 
 </html>

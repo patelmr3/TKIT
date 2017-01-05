@@ -1,0 +1,29 @@
+@mixin shadow( $x: 0px, $y: 1px, $blur: 10px, $alpha: 0.2, $inset: false ) {
+  @if $inset {
+    -webkit-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
+    -moz-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
+    -ms-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
+    -o-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
+    box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
+  } @else {
+    -webkit-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
+    -moz-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
+    -ms-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
+    -o-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
+    box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
+  }
+}
+@mixin rounded( $radius: 3px ) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin transition( $transition: ease all 0.3s ){
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+}

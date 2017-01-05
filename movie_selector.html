@@ -1,5 +1,21 @@
 <section id="movie-selector-block" class="ui-block">
-	<article class="movie-selector-block-inner ui-block-inner">
+
+		<section id="movie-item-wrapper-{{ $index }}" class="movie-item-wrapper" ng-repeat="movie in movies track by $index">
+			<article class="movie-item-inner">
+				
+				<section class="movie-poster">
+					<div style="background-image: url('{{ movie.poster }}');">
+				</section> <!-- movie poster -->
+
+				<section class="movie-info">
+					<div class="movie-title">{{ movie.title }}</div>
+					<ul class="movie-showtimes" ng-repeat="showTime in movie.showTimes">
+						<li>{{ showTime }}</li>
+					</ul>
+					<p class="movie-summary">{{ movie.summary }}</p>
+				</section> <!-- movie info -->
+
+			</article> <!-- movie item inner -->
+		</section> <!-- movie item wrapper -->
 		
-	</article> <!-- movie selector block inner -->
 </section> <!-- movie selector block -->

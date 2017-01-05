@@ -1,5 +1,19 @@
 $roboto : 'Roboto', sans-serif;
 
 body{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
 	font: 14px $roboto;
+	background-color: #e8e8e8;
+}
+.cf:before, .cf:after{
+	content: "";
+	display: table;
+}
+.cf:after{
+	clear: both;
 }
