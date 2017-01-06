@@ -1,6 +1,6 @@
 <section id="movie-selector-block" class="ui-block">
 
-	<section id="movie-item-wrapper-{{ $index }}" class="movie-item-wrapper" ng-repeat="movie in movies track by $index">
+	<section id="movie-item-wrapper-{{ $index }}" style="background-color:{{ movie.color }}" class="movie-item-wrapper" ng-repeat="movie in movies track by $index">
 		<article class="movie-item-inner">
 			
 			<section class="movie-poster">
