@@ -9,40 +9,20 @@
 	position: absolute;
 }
 .movie-item-wrapper{
-	position: absolute;
+	overflow: hidden;
+	position: relative;
 	float: left;
 	width: 33.33%;
 	height: 100%;
 	background-color: #fff;
 	@include shadow();
-}
-.movie-poster{
-	z-index: 99;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	div{
-		@extend .movie-poster;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-	}
-}
-.movie-info{
-	display: none;
-}
-
-.movie-item-wrapper{
-	overflow: hidden;
-	position: relative;
 	@include transition( ease opacity 0.5s, ease left 1s, ease position 0.8s );
 
 	.movie-poster div{
 		@include transition( ease left 0.3s, ease transform 0.2s, ease opacity 0.6s );
 	}
 
+	/*angular animate*/
 	&.ng-enter{
 		opacity: 0;
 		left: -100%;
@@ -60,14 +40,52 @@
 	}
 
 }
+.movie-details-open{
+	cursor: default;
+	.movie-poster, .movie-item-overlay{
+		top: -80%;
+	}
+	.movie-item-overlay{
+		opacity: 0;
+	}
+}
+.movie-item-overlay{
+	z-index: 100;
+	opacity: 0.3;
+	@extend .ui-block;
+	background-color: #000;
+	cursor: pointer;
+	@include transition( cubic-bezier(1, -0.38, 0, 1.39) top 0.4s );
+	@include transition( ease opacity 0.3s );
+	&:hover {
+		opacity: 0;
+	}
+}
+.movie-poster{
+	z-index: 99;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	@include transition( cubic-bezier(1, -0.38, 0, 1.39) all 0.4s );
+	div{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+}
+.movie-info{
+	display: none;
+}
 
 .movie-item-wrapper.ng-enter .movie-poster div{
 	left: -100%;
-	@include moviePosterEnter( $scale: 0.8, $rotate: -45deg );
+	@include moviePosterTransform( $scale: 0.8, $rotate: -45deg );
 	opacity: 0;
-}
-.movie-item-wrapper.ng-enter.ng-ernter-active .movie-poster div{
-	left: 0%;
-	@include moviePosterEnter( $scale: 1, $rotate: 0deg );
-	opacity: 1;
 }

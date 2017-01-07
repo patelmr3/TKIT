@@ -5,7 +5,7 @@
     -ms-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
     -o-box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
     box-shadow:inset $x $y $blur rgba( 0, 0, 0, $alpha );
-  } @else {
+  }@else {
     -webkit-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
     -moz-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
     -ms-box-shadow: $x $y $blur rgba( 0, 0, 0, $alpha );
@@ -20,14 +20,22 @@
   -o-border-radius: $radius;
   border-radius: $radius;
 }
-@mixin transition( $transition1, $transition2, $transition3 ){
-	transition: $transition1, $transition2, $transition3;
-	-webkit-transition: $transition1, $transition2, $transition3;
-	-moz-transition: $transition1, $transition2, $transition3;
-	-ms-transition: $transition1, $transition2, $transition3;
-	-o-transition: $transition1, $transition2, $transition3;
+@mixin transition( $transition1, $transition2:false, $transition3:false ){
+	@if( $transition2 and $transition3 ){
+		transition: $transition1, $transition2, $transition3;
+		-webkit-transition: $transition1, $transition2, $transition3;
+		-moz-transition: $transition1, $transition2, $transition3;
+		-ms-transition: $transition1, $transition2, $transition3;
+		-o-transition: $transition1, $transition2, $transition3;
+	}@else{
+		transition: $transition1;
+		-webkit-transition: $transition1;
+		-moz-transition: $transition1;
+		-ms-transition: $transition1;
+		-o-transition: $transition1;
+	}
 }
-@mixin moviePosterEnter( $scale, $rotate ){
+@mixin moviePosterTransform( $scale, $rotate ){
 	transform: scale( $scale ) rotate( $rotate );
 	-webkit-transform: scale( $scale ) rotate( $rotate );
 	-moz-transform: scale( $scale ) rotate( $rotate );

@@ -7,48 +7,37 @@ tkit.config( function( $routeProvider, $locationProvider ) {
 	$locationProvider.html5Mode( true );
 });
 
-tkit.controller( "movieSelector", function( $scope, $interval ){
+tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 
-	$scope.moviesRaw = [
-		{
-			title		: 	"Movie Title 1",
-			showTimes	: 	[ '9:00 AM', '9:45 AM', '3:00 PM', '6:00 PM' ],
-			summary		: 	"This is a movie summary 1", 
-			poster		: 	"https://drnorth.files.wordpress.com/2015/02/divergent-2014-movie-posters-and-trailer.jpg",
-			color 		: 	"#6c82a7"
-		},
-		{
-			title		: 	"Movie Title 2",
-			showTimes	: 	[ '9:00 AM', '9:45 AM', '6:00 PM' ],
-			summary		: 	"This is a movie summary 2", 
-			poster		: 	"https://joshwebb990.files.wordpress.com/2014/02/johhny-english-movie-posters-26233319-1012-1500.jpg",
-			color 		: 	"#c1182b"
-		},
-		{
-			title		: 	"Movie Title 3",
-			showTimes	: 	[ '9:00 AM', '9:45 AM', '3:00 PM' ],
-			summary		: 	"This is a movie summary 3", 
-			poster		: 	"https://arielocampo.edublogs.org/files/2016/04/Assassin-2iaz3u9.jpg",
-			color 		: 	"#e79849"
-		}
-	];
+	//get movies from json file
+	$http.get( "js/movies.json" )
+	.then( function( response ){
+		$scope.moviesRaw = response.data;
+	});
 
 	$scope.movies = [];
 
-	$scope.pushMovies = function(i){
-		$scope.movies.push( $scope.moviesRaw[i] );
+	//push movies one by one at interval
+	$scope.pushMovies = function( i ){
+		$scope.movies.push( $scope.moviesRaw[ i ] );
 	}
 
 	var i = 0;
 	var pushInterval = $interval(function(){
 		var totalMovies = $scope.moviesRaw.length
-		$scope.pushMovies(i);
+		$scope.pushMovies( i );
 		i++;
-		if(i==totalMovies){
-			$interval.cancel(pushInterval);
+		if( i==totalMovies ){
+			$interval.cancel( pushInterval );
 		}
 	},100);
-	
+
+	//show movie details
+	$scope.showMovieDetails = function( index, movie ){
+		var $_thisMovie = $( ".movie-item-wrapper" ).eq( index );
+		$( ".movie-item-wrapper" ).not($_thisMovie).removeClass( "movie-details-open" );
+		$_thisMovie.toggleClass( "movie-details-open" );
+	}
 
 });
 

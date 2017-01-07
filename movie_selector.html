@@ -3,6 +3,8 @@
 	<section id="movie-item-wrapper-{{ $index }}" style="background-color:{{ movie.color }}" class="movie-item-wrapper" ng-repeat="movie in movies track by $index">
 		<article class="movie-item-inner">
 			
+			<div class="movie-item-overlay" ng-click="showMovieDetails( $index, movie )"></div>
+
 			<section class="movie-poster">
 				<div style="background-image: url('{{ movie.poster }}');"></div>
 			</section> <!-- movie poster -->
