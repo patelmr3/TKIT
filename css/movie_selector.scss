@@ -81,7 +81,67 @@
 	}
 }
 .movie-info{
-	display: none;
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	top: 20%;
+	padding: 5%;
+	text-align: center;
+	.movie-info-inner{
+		z-index: 11;
+		position: absolute;
+		.movie-title, .movie-showtimes, .movie-summary{
+			opacity: 0;
+		}
+	}
+	.movie-info-animate-before{
+		margin-top: 50px;
+	}
+	.movie-info-animate-start{
+		opacity: 1 !important;
+		margin-top: 20px;
+		@include transition( all 0.5s cubic-bezier(0.89,-0.17, 0.15, 1.18) );
+	}
+	.movie-title{
+		font-size: 30px;
+		text-transform: uppercase;
+		font-weight: 900;
+	}
+	.movie-showtimes{
+		display: inline-block;
+		margin-left: 0px;
+		padding: 0px;
+	}
+	.movie-showtimes li{
+		float: left;
+		margin: 5px;
+		padding: 5px;
+		list-style: none;
+		border: 1px solid #000;
+		@include rounded( 3px );
+	}
+	.movie-summary{
+		text-align: left;
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.movie-info-overlay{
+		z-index: 10;
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		background-color: #fff;
+		@include rounded( 50% );
+		@include transform( 0 );
+		@include transition( all 0.3s cubic-bezier(1, 0.22, 0.99, 1.71) );
+	}
+	.movie-info-overlay-open{
+		opacity: 1;
+		@include transform( 1.5 );
+	}
 }
 
 .movie-item-wrapper.ng-enter .movie-poster div{

@@ -34,9 +34,30 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 
 	//show movie details
 	$scope.showMovieDetails = function( index, movie ){
-		var $_thisMovie = $( ".movie-item-wrapper" ).eq( index );
-		$( ".movie-item-wrapper" ).not($_thisMovie).removeClass( "movie-details-open" );
+		var $_thisMovie   = $( ".movie-item-wrapper" ).eq( index );
+		var $_thisOverlay = $_thisMovie.find( ".movie-info-overlay" );
+		$( ".movie-item-wrapper" ).not( $_thisMovie ).removeClass( "movie-details-open" );
+		$( ".movie-info-overlay" ).not( $_thisOverlay ).removeClass( "movie-info-overlay-open" );
+		$_thisMovie.find( ".movie-info-overlay" ).toggleClass( "movie-info-overlay-open" );
 		$_thisMovie.toggleClass( "movie-details-open" );
+		animateChildren( $_thisMovie.find( ".movie-info-inner" ) );
+	}
+
+	function animateChildren( parent ){
+		var children = parent.children();
+		$( ".movie-info-inner" ).not( parent ).children()
+			.removeClass( "movie-info-animate-before" )
+			.removeClass( "movie-info-animate-start" );
+		children.toggleClass( "movie-info-animate-before" );
+		var ctr = 0;
+		var animInterval = $interval( function(){
+			children.eq( ctr )
+				.toggleClass( "movie-info-animate-start" );
+			ctr++;
+			if( ctr== children.length ){
+				$interval.cancel( animInterval );
+			}
+		},200);
 	}
 
 });

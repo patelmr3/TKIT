@@ -10,11 +10,14 @@
 			</section> <!-- movie poster -->
 
 			<section class="movie-info">
-				<div class="movie-title">{{ movie.title }}</div>
-				<ul class="movie-showtimes" ng-repeat="showTime in movie.showTimes">
-					<li>{{ showTime }}</li>
-				</ul>
-				<p class="movie-summary">{{ movie.summary }}</p>
+				<article class="movie-info-inner">
+					<div class="movie-title">{{ movie.title }}</div>
+					<ul class="movie-showtimes cf">
+						<li ng-repeat="showTime in movie.showTimes">{{ showTime }}</li>
+					</ul>
+					<p class="movie-summary">{{ movie.summary }}</p>
+				</article> <!-- movie info wrapper -->
+				<div class="movie-info-overlay"></div>
 			</section> <!-- movie info -->
 
 		</article> <!-- movie item inner -->
