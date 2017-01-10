@@ -54,7 +54,7 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 			children.eq( ctr )
 				.toggleClass( "movie-info-animate-start" );
 			ctr++;
-			if( ctr== children.length ){
+			if( ctr == children.length ){
 				$interval.cancel( animInterval );
 			}
 		},150);
