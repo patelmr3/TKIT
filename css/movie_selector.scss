@@ -82,15 +82,15 @@
 }
 .movie-info{
 	position: absolute;
-	width: 90%;
+	width: 80%;
 	height: 90%;
 	top: 20%;
-	padding: 5%;
+	margin: 10%;
 	text-align: center;
 	.movie-info-inner{
 		z-index: 11;
 		position: absolute;
-		.movie-title, .movie-showtimes, .movie-summary{
+		.movie-title, .movie-showtimes, .movie-summary, .book-now-btn{
 			opacity: 0;
 		}
 	}
@@ -100,7 +100,7 @@
 	.movie-info-animate-start{
 		opacity: 1 !important;
 		margin-top: 20px;
-		@include transition( all 0.5s cubic-bezier(0.89,-0.17, 0.15, 1.18) );
+		@include transition( margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6) );
 	}
 	.movie-title{
 		font-size: 30px;
@@ -117,13 +117,15 @@
 		margin: 5px;
 		padding: 5px;
 		list-style: none;
-		border: 1px solid #000;
+		color: #777;
+		background-color: #ececec;
 		@include rounded( 3px );
 	}
 	.movie-summary{
+		font-family: cambria;
 		text-align: left;
-		font-size: 16px;
-		line-height: 20px;
+		font-size: 18px;
+		line-height: 26px;
 	}
 	.movie-info-overlay{
 		z-index: 10;
@@ -140,7 +142,7 @@
 	}
 	.movie-info-overlay-open{
 		opacity: 1;
-		@include transform( 1.5 );
+		@include transform( 1.8 );
 	}
 }
 

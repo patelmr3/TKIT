@@ -16,6 +16,26 @@ body {
 .cf:after {
   clear: both; }
 
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #03A9F4;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #03A9F4;
+  cursor: pointer;
+  transition: ease all 0.3s !important;
+  -webkit-transition: ease all 0.3s !important;
+  -moz-transition: ease all 0.3s !important;
+  -ms-transition: ease all 0.3s !important;
+  -o-transition: ease all 0.3s !important; }
+  .btn:hover {
+    color: #03A9F4;
+    background-color: #fff; }
+
 .ui-wrapper, .ui-view, .ui-block, .movie-item-overlay {
   position: absolute;
   width: 100%;
@@ -110,26 +130,26 @@ body {
 
 .movie-info {
   position: absolute;
-  width: 90%;
+  width: 80%;
   height: 90%;
   top: 20%;
-  padding: 5%;
+  margin: 10%;
   text-align: center; }
   .movie-info .movie-info-inner {
     z-index: 11;
     position: absolute; }
-    .movie-info .movie-info-inner .movie-title, .movie-info .movie-info-inner .movie-showtimes, .movie-info .movie-info-inner .movie-summary {
+    .movie-info .movie-info-inner .movie-title, .movie-info .movie-info-inner .movie-showtimes, .movie-info .movie-info-inner .movie-summary, .movie-info .movie-info-inner .book-now-btn {
       opacity: 0; }
   .movie-info .movie-info-animate-before {
     margin-top: 50px; }
   .movie-info .movie-info-animate-start {
     opacity: 1 !important;
     margin-top: 20px;
-    transition: all 0.5s cubic-bezier(0.89, -0.17, 0.15, 1.18);
-    -webkit-transition: all 0.5s cubic-bezier(0.89, -0.17, 0.15, 1.18);
-    -moz-transition: all 0.5s cubic-bezier(0.89, -0.17, 0.15, 1.18);
-    -ms-transition: all 0.5s cubic-bezier(0.89, -0.17, 0.15, 1.18);
-    -o-transition: all 0.5s cubic-bezier(0.89, -0.17, 0.15, 1.18); }
+    transition: margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6);
+    -webkit-transition: margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6);
+    -moz-transition: margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6);
+    -ms-transition: margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6);
+    -o-transition: margin 0.5s cubic-bezier(0.03, 0.1, 0.31, 0.6); }
   .movie-info .movie-title {
     font-size: 30px;
     text-transform: uppercase;
@@ -143,16 +163,18 @@ body {
     margin: 5px;
     padding: 5px;
     list-style: none;
-    border: 1px solid #000;
+    color: #777;
+    background-color: #ececec;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px; }
   .movie-info .movie-summary {
+    font-family: cambria;
     text-align: left;
-    font-size: 16px;
-    line-height: 20px; }
+    font-size: 18px;
+    line-height: 26px; }
   .movie-info .movie-info-overlay {
     z-index: 10;
     opacity: 0;
@@ -179,11 +201,11 @@ body {
     -o-transition: all 0.3s cubic-bezier(1, 0.22, 0.99, 1.71); }
   .movie-info .movie-info-overlay-open {
     opacity: 1;
-    transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5); }
+    transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    -moz-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8); }
 
 .movie-item-wrapper.ng-enter .movie-poster div {
   left: -100%;

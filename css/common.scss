@@ -18,3 +18,16 @@ body{
 .cf:after{
 	clear: both;
 }
+.btn {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #03A9F4;
+    @include rounded( 20px );
+    border: 1px solid #03A9F4;
+    cursor: pointer;
+    @include transition( ease all 0.3s !important, false , false );
+    &:hover{
+    	color: #03A9F4;
+    	background-color: #fff;
+    };
+}

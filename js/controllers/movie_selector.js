@@ -45,7 +45,7 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 
 	function animateChildren( parent ){
 		var children = parent.children();
-		$( ".movie-info-inner" ).not( parent ).children()
+		$( "."+parent.attr( "class" ) ).not( parent ).children()
 			.removeClass( "movie-info-animate-before" )
 			.removeClass( "movie-info-animate-start" );
 		children.toggleClass( "movie-info-animate-before" );
@@ -57,7 +57,7 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 			if( ctr== children.length ){
 				$interval.cancel( animInterval );
 			}
-		},200);
+		},150);
 	}
 
 });
