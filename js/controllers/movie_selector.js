@@ -7,7 +7,7 @@ tkit.config( function( $routeProvider, $locationProvider ) {
 	$locationProvider.html5Mode( true );
 });
 
-tkit.controller( "movieSelector", function( $scope, $interval, $http ){
+tkit.controller( "movieSelector", function( $scope, $interval, $timeout, $http ){
 
 	//get movies from json file
 	$http.get( "js/movies.json" )
@@ -43,6 +43,7 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 		animateChildren( $_thisMovie.find( ".movie-info-inner" ) );
 	}
 
+	//animate movie info
 	function animateChildren( parent ){
 		var children = parent.children();
 		$( "."+parent.attr( "class" ) ).not( parent ).children()
@@ -58,6 +59,11 @@ tkit.controller( "movieSelector", function( $scope, $interval, $http ){
 				$interval.cancel( animInterval );
 			}
 		},150);
+	}
+
+	//book now
+	$scope.bookNow = function(){
+
 	}
 
 });

@@ -55,8 +55,7 @@
 	@extend .ui-block;
 	background-color: #000;
 	cursor: pointer;
-	@include transition( cubic-bezier(1, -0.38, 0, 1.39) top 0.4s );
-	@include transition( ease opacity 0.3s );
+	@include transition( cubic-bezier(0, 0.88, 0, 1.19) top 0.4s, ease opacity 0.3s, false );
 	&:hover {
 		opacity: 0;
 	}
@@ -68,7 +67,7 @@
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	@include transition( cubic-bezier(0, 0.88, 0, 1.19) all 0.4s );
+	@include transition( cubic-bezier(0, 0.88, 0, 1.19) all 0.4s, false, false );
 	div{
 		position: absolute;
 		left: 0px;
@@ -90,7 +89,7 @@
 	.movie-info-inner{
 		z-index: 11;
 		position: absolute;
-		.movie-title, .movie-showtimes, .movie-summary, .book-now-btn{
+		.movie-title, .movie-showtimes, .movie-summary, .book-now-btn, .booking-window{
 			opacity: 0;
 		}
 	}
@@ -139,13 +138,26 @@
 		left: 0px;
 		background-color: #fff;
 		@include rounded( 50% );
-		@include transform( 0 );
-		@include transition( all 0.3s cubic-bezier(0, 0.14, 0.88, 0.58) );
+		@include transform( scale( 0 ) );
+		@include transition( all 0.3s cubic-bezier(0, 0.14, 0.88, 0.58), false, false );
 	}
 	.movie-info-overlay-open{
 		opacity: 1;
-		@include transform( 1.8 );
+		@include transform( scale( 1.8 ) );
 	}
+}
+.booking-window{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	@include transform( transtaleX( -50% ), $imp:true );
+	background-color: #e8e8e8;
+}
+.booking-window-open{
+	top: 0px;
+	left: 0px;
+	@include transform( transtaleX( 0% ), $imp:true );
 }
 
 .movie-item-wrapper.ng-enter .movie-poster div{
