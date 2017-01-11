@@ -21,26 +21,12 @@
   -o-border-radius: $radius;
   border-radius: $radius;
 }
-@mixin transition( $transition1, $transition2:false, $transition3:false ){
-	@if( $transition2 and $transition3 ){
-		transition: $transition1, $transition2, $transition3;
-		-webkit-transition: $transition1, $transition2, $transition3;
-		-moz-transition: $transition1, $transition2, $transition3;
-		-ms-transition: $transition1, $transition2, $transition3;
-		-o-transition: $transition1, $transition2, $transition3;
-	}@else if( $transition1 and $transition2 ){
-		transition: $transition1, $transition2;
-		-webkit-transition: $transition1, $transition2;
-		-moz-transition: $transition1, $transition2;
-		-ms-transition: $transition1, $transition2;
-		-o-transition: $transition1, $transition2;
-	}@else{
-		transition: $transition1;
-		-webkit-transition: $transition1;
-		-moz-transition: $transition1;
-		-ms-transition: $transition1;
-		-o-transition: $transition1;
-	}
+@mixin transition( $transition... ){
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
 }
 @mixin moviePosterTransform( $scale, $rotate ){
 	transform: scale( $scale ) rotate( $rotate );

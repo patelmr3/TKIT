@@ -18,10 +18,6 @@
 	@include shadow();
 	@include transition( ease opacity 0.5s, ease left 1s, ease position 0.8s );
 
-	.movie-poster div{
-		@include transition( ease left 0.3s, ease transform 0.2s, ease opacity 0.6s );
-	}
-
 	/*angular animate*/
 	&.ng-enter{
 		opacity: 0;
@@ -55,7 +51,7 @@
 	@extend .ui-block;
 	background-color: #000;
 	cursor: pointer;
-	@include transition( cubic-bezier(0, 0.88, 0, 1.19) top 0.4s, ease opacity 0.3s, false );
+	@include transition( cubic-bezier(0, 0.88, 0, 1.19) top 0.4s, ease opacity 0.3s );
 	&:hover {
 		opacity: 0;
 	}
@@ -67,7 +63,7 @@
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	@include transition( cubic-bezier(0, 0.88, 0, 1.19) all 0.4s, false, false );
+	@include transition( cubic-bezier(0, 0.88, 0, 1.19) all 0.4s );
 	div{
 		position: absolute;
 		left: 0px;
@@ -77,6 +73,7 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		@include transition( ease left 0.5s, ease transform 0.8s );
 	}
 }
 .movie-info{
@@ -139,7 +136,7 @@
 		background-color: #fff;
 		@include rounded( 50% );
 		@include transform( scale( 0 ) );
-		@include transition( all 0.3s cubic-bezier(0, 0.14, 0.88, 0.58), false, false );
+		@include transition( all 0.3s cubic-bezier(0, 0.14, 0.88, 0.58) );
 	}
 	.movie-info-overlay-open{
 		opacity: 1;
@@ -162,6 +159,6 @@
 
 .movie-item-wrapper.ng-enter .movie-poster div{
 	left: -100%;
-	@include moviePosterTransform( $scale: 0.8, $rotate: -45deg );
+	@include transform( scale( 0.5 ) );
 	opacity: 0;
 }
