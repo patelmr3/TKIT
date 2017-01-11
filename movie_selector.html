@@ -16,15 +16,14 @@
 						<li ng-repeat="showTime in movie.showTimes">{{ showTime }}</li>
 					</ul>
 					<p class="movie-summary">{{ movie.summary }}</p>
-					<button type="button" class="book-now-btn btn" ng-click="bookNow()">Book Now</button>
-					
-					<div class="booking-window">
-						
-					</div>
-					
+					<button type="button" class="book-now-btn btn" ng-click="bookNow( $index )">Book Now</button>
 				</article> <!-- movie info wrapper -->
 				<div class="movie-info-overlay"></div>
 			</section> <!-- movie info -->
+
+			<div class="booking-window">
+						
+			</div>
 
 		</article> <!-- movie item inner -->
 	</section> <!-- movie item wrapper -->

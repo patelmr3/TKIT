@@ -86,18 +86,18 @@
 	.movie-info-inner{
 		z-index: 11;
 		position: absolute;
-		.movie-title, .movie-showtimes, .movie-summary, .book-now-btn, .booking-window{
+		.movie-title, .movie-showtimes, .movie-summary, .book-now-btn{
 			opacity: 0;
 		}
 	}
 	.movie-info-animate-before{
 		margin-top: 50px;
-		@include transform( 0.5 );
+		@include transform( scale( 0.5 ) );
 	}
 	.movie-info-animate-start{
 		opacity: 1 !important;
 		margin-top: 20px;
-		@include transform( 1 );
+		@include transform( scale( 1 ) );
 		@include transition( margin 0.6s cubic-bezier(0, 4.23, 0, 0.72), ease transform 0.3s, ease opacity 0.2s );
 	}
 	.movie-title{
@@ -143,18 +143,29 @@
 		@include transform( scale( 1.8 ) );
 	}
 }
+.movie-info-hidden{
+	top: -100%;
+	opacity: 0;
+	@include transition( ease all 0.3s );
+}
 .booking-window{
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	top: 100%;
 	left: 50%;
-	@include transform( transtaleX( -50% ), $imp:true );
-	background-color: #e8e8e8;
+	background-color: #fff;
+	@include transform( translateX( -50% ) scale( 0 ), $imp:true );
+	@include transition( ease all 0.3s );
 }
 .booking-window-open{
-	top: 0px;
+	z-index: 300;
+	top: 20%;
 	left: 0px;
-	@include transform( transtaleX( 0% ), $imp:true );
+	width: 100%;
+	height: 100%;
+	@include transform( translateX( 0% ) scale( 1 ), $imp:true );
+	transform-origin: bottom right;
 }
 
 .movie-item-wrapper.ng-enter .movie-poster div{

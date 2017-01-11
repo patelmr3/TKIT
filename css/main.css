@@ -132,23 +132,23 @@ body {
   .movie-info .movie-info-inner {
     z-index: 11;
     position: absolute; }
-    .movie-info .movie-info-inner .movie-title, .movie-info .movie-info-inner .movie-showtimes, .movie-info .movie-info-inner .movie-summary, .movie-info .movie-info-inner .book-now-btn, .movie-info .movie-info-inner .booking-window {
+    .movie-info .movie-info-inner .movie-title, .movie-info .movie-info-inner .movie-showtimes, .movie-info .movie-info-inner .movie-summary, .movie-info .movie-info-inner .book-now-btn {
       opacity: 0; }
   .movie-info .movie-info-animate-before {
     margin-top: 50px;
-    transform: 0.5;
-    -webkit-transform: 0.5;
-    -moz-transform: 0.5;
-    -ms-transform: 0.5;
-    -o-transform: 0.5; }
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5); }
   .movie-info .movie-info-animate-start {
     opacity: 1 !important;
     margin-top: 20px;
-    transform: 1;
-    -webkit-transform: 1;
-    -moz-transform: 1;
-    -ms-transform: 1;
-    -o-transform: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transition: margin 0.6s cubic-bezier(0, 4.23, 0, 0.72), ease transform 0.3s, ease opacity 0.2s;
     -webkit-transition: margin 0.6s cubic-bezier(0, 4.23, 0, 0.72), ease transform 0.3s, ease opacity 0.2s;
     -moz-transition: margin 0.6s cubic-bezier(0, 4.23, 0, 0.72), ease transform 0.3s, ease opacity 0.2s;
@@ -211,26 +211,45 @@ body {
     -ms-transform: scale(1.8);
     -o-transform: scale(1.8); }
 
+.movie-info-hidden {
+  top: -100%;
+  opacity: 0;
+  transition: ease all 0.3s;
+  -webkit-transition: ease all 0.3s;
+  -moz-transition: ease all 0.3s;
+  -ms-transition: ease all 0.3s;
+  -o-transition: ease all 0.3s; }
+
 .booking-window {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 100%;
   left: 50%;
-  transform: transtaleX(-50%) !important;
-  -webkit-transform: transtaleX(-50%) !important;
-  -moz-transform: transtaleX(-50%) !important;
-  -ms-transform: transtaleX(-50%) !important;
-  -o-transform: transtaleX(-50%) !important;
-  background-color: #e8e8e8; }
+  background-color: #fff;
+  transform: translateX(-50%) scale(0) !important;
+  -webkit-transform: translateX(-50%) scale(0) !important;
+  -moz-transform: translateX(-50%) scale(0) !important;
+  -ms-transform: translateX(-50%) scale(0) !important;
+  -o-transform: translateX(-50%) scale(0) !important;
+  transition: ease all 0.3s;
+  -webkit-transition: ease all 0.3s;
+  -moz-transition: ease all 0.3s;
+  -ms-transition: ease all 0.3s;
+  -o-transition: ease all 0.3s; }
 
 .booking-window-open {
-  top: 0px;
+  z-index: 300;
+  top: 20%;
   left: 0px;
-  transform: transtaleX(0%) !important;
-  -webkit-transform: transtaleX(0%) !important;
-  -moz-transform: transtaleX(0%) !important;
-  -ms-transform: transtaleX(0%) !important;
-  -o-transform: transtaleX(0%) !important; }
+  width: 100%;
+  height: 100%;
+  transform: translateX(0%) scale(1) !important;
+  -webkit-transform: translateX(0%) scale(1) !important;
+  -moz-transform: translateX(0%) scale(1) !important;
+  -ms-transform: translateX(0%) scale(1) !important;
+  -o-transform: translateX(0%) scale(1) !important;
+  transform-origin: bottom right; }
 
 .movie-item-wrapper.ng-enter .movie-poster div {
   left: -100%;

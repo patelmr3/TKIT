@@ -33,8 +33,10 @@ tkit.controller( "movieSelector", function( $scope, $interval, $timeout, $http )
 	},100);
 
 	//show movie details
+	var $_thisMovie;
+
 	$scope.showMovieDetails = function( index, movie ){
-		var $_thisMovie   = $( ".movie-item-wrapper" ).eq( index );
+		$_thisMovie   = $( ".movie-item-wrapper" ).eq( index );
 		var $_thisOverlay = $_thisMovie.find( ".movie-info-overlay" );
 		$( ".movie-item-wrapper" ).not( $_thisMovie ).removeClass( "movie-details-open" );
 		$( ".movie-info-overlay" ).not( $_thisOverlay ).removeClass( "movie-info-overlay-open" );
@@ -62,8 +64,9 @@ tkit.controller( "movieSelector", function( $scope, $interval, $timeout, $http )
 	}
 
 	//book now
-	$scope.bookNow = function(){
-
+	$scope.bookNow = function( index ){
+		$_thisMovie.find( ".booking-window" ).toggleClass( "booking-window-open" );
+		$_thisMovie.find( ".movie-info" ).toggleClass( "movie-info-hidden" );
 	}
 
 });
